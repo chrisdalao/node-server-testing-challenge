@@ -14,14 +14,16 @@ async function insert(car) {
     return db('cars').insert(car, 'id');
 }
 
-async function update(id, changes) {
+function update(id, changes) {
     return db('cars')
         .where('id', id)
         .update(changes)
 }
 
 function remove(id) {
-    return null;
+    return db('cars')
+        .where('id', id)
+        .del();
 }
 
 function getAll() {
