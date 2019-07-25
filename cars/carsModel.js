@@ -29,5 +29,5 @@ function getAll() {
 }
 
 function findById(id) {
-    return null;
+    return db('cars').where({ id: Number(id) });
 }
