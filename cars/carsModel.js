@@ -1,0 +1,32 @@
+const db = require('../data/dbConfig.js');
+
+module.exports = {
+    insert,
+    update,
+    remove,
+    getAll,
+    findById,
+};
+
+async function insert(car) {
+    return db('cars').insert(car, 'id');
+}
+
+async function update(id, changes) {
+    return db('cars')
+        .where('id', id)
+        .update(changes)
+        .then(count => (count > 0 ? this.get(id) : null));
+}
+
+function remove(id) {
+    return null;
+}
+
+function getAll() {
+    return db('cars');
+}
+
+function findById(id) {
+    return null;
+}
