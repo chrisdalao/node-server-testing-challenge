@@ -6,6 +6,9 @@ describe('cars model', () => {
     beforeEach(async () => {
         await db('cars').truncate();//resets the database - cleans it up 
     });
+    // it.skip('db environement set to testing', () => {
+    //     expect(process.env.DB_ENV).toBe('testing');
+    // })
 
     describe('instert()', () => {
         it('should insert the car into the db', async () => {
@@ -26,4 +29,11 @@ describe('cars model', () => {
             expect(cars).toHaveLength(2);
         })
     })
+
+    describe('update()', () => {
+        it('should update a car in the db', async () => {
+            await Cars.update(1, { name: 'hello' })
+        })
+    })
+
 });
